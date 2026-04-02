@@ -1,211 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Boon Tree Supermarket Dashboard</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<style>
-
-body{
-background:#f4f7fb;
-font-family:Segoe UI;
-}
-
-.header{
-background:linear-gradient(90deg,#1e3c72,#2a5298);
-color:white;
-padding:20px;
-font-size:26px;
-font-weight:bold;
-text-align:center;
-}
-
-.card{
-border-radius:15px;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
-}
-
-.kpi{
-font-size:32px;
-font-weight:bold;
-color:#1e3c72;
-}
-
-.chart-container{
-height:350px;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Real-time Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body class="bg-gray-900 text-white font-sans">
 
-<body>
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8 border-b border-gray-700 pb-4">
+            <h1 class="text-3xl font-bold text-cyan-400">📊 Business Overview</h1>
+            <p class="text-gray-400">Data synced from Google Sheets</p>
+        </header>
 
-<div class="header">
-Boon Tree Supermarket Sales Dashboard
-</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+                <h3 class="text-gray-400 text-sm uppercase">Total Sales</h3>
+                <p id="kpi-sales" class="text-3xl font-bold text-white">Loading...</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+                <h3 class="text-gray-400 text-sm uppercase">Active Users</h3>
+                <p id="kpi-users" class="text-3xl font-bold text-green-400">Loading...</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+                <h3 class="text-gray-400 text-sm uppercase">Status</h3>
+                <p class="text-3xl font-bold text-cyan-400">Online</p>
+            </div>
+        </div>
 
-<div class="container mt-4">
+        <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg mb-8">
+            <h3 class="text-lg font-semibold mb-4 text-gray-300">Monthly Performance</h3>
+            <div class="relative h-[400px]">
+                <canvas id="mainChart"></canvas>
+            </div>
+        </div>
+    </div>
 
-<div class="row g-3">
-
-<div class="col-md-4">
-<div class="card p-3">
-<div>Today's Sales</div>
-<div class="kpi">฿182,450</div>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card p-3">
-<div>Total Bills</div>
-<div class="kpi">1,254</div>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card p-3">
-<div>Avg / Bill</div>
-<div class="kpi">฿145</div>
-</div>
-</div>
-
-</div>
-
-
-<div class="row mt-4 g-4">
-
-<div class="col-lg-8">
-
-<div class="card p-4">
-
-<h5>Monthly Sales</h5>
-
-<div class="chart-container">
-<canvas id="salesChart"></canvas>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="col-lg-4">
-
-<div class="card p-4">
-
-<h5>Top Categories</h5>
-
-<div class="chart-container">
-<canvas id="categoryChart"></canvas>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-<script>
-
-const salesChart = new Chart(
-document.getElementById('salesChart'),
-{
-type:'line',
-
-data:{
-
-labels:[
-'Jan','Feb','Mar','Apr','May','Jun',
-'Jul','Aug','Sep','Oct','Nov','Dec'
-],
-
-datasets:[{
-label:'Sales',
-
-data:[
-350000,
-420000,
-390000,
-450000,
-520000,
-480000,
-510000,
-530000,
-500000,
-560000,
-590000,
-610000
-],
-
-borderColor:'#1e3c72',
-backgroundColor:'rgba(30,60,114,0.1)',
-fill:true,
-tension:0.4
-
-}]
-},
-
-options:{
-responsive:true
-}
-
-}
-)
-
-
-const categoryChart = new Chart(
-document.getElementById('categoryChart'),
-{
-
-type:'doughnut',
-
-data:{
-
-labels:[
-'Fresh Food',
-'Beverage',
-'Snack',
-'Household',
-'Other'
-],
-
-datasets:[{
-
-data:[
-35,
-25,
-20,
-10,
-10
-],
-
-backgroundColor:[
-'#1e3c72',
-'#2a5298',
-'#4facfe',
-'#00c6ff',
-'#a1c4fd'
-]
-
-}]
-
-}
-
-}
-
-)
-
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
