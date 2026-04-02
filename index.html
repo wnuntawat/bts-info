@@ -1,307 +1,252 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCI Thailand - Digital Brochure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #002366;
+            --accent-red: #cc0000;
+            --light-gray: #f8f9fa;
+            --dark-blue: #001233;
+        }
 
-<title>RCI Packaging Brochure</title>
+        body {
+            font-family: 'Kanit', sans-serif;
+            color: #333;
+            background-color: var(--light-gray);
+        }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 100px 0;
+            border-bottom: 8px solid var(--accent-red);
+            position: relative;
+            overflow: hidden;
+        }
 
-<style>
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 300px; height: 300px;
+            background: rgba(204, 0, 0, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+        }
 
-body{
-font-family: 'Segoe UI', sans-serif;
-background:#f6f8fb;
-}
+        /* Product Cards */
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+            background: white;
+        }
 
-.hero{
-background:linear-gradient(135deg,#003a8f,#d9001b);
-color:white;
-padding:80px 0;
-}
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
 
-.hero h1{
-font-weight:700;
-}
+        .card-header-custom {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px;
+            font-weight: 600;
+            border-bottom: 4px solid var(--accent-red);
+        }
 
-.section-title{
-font-weight:700;
-color:#003a8f;
-margin-bottom:30px;
-}
+        /* Badge & Icons */
+        .icon-box {
+            color: var(--accent-red);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
 
-.product-card{
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-transition:0.3s;
-}
+        /* Table Style */
+        .table-custom {
+            font-size: 0.9rem;
+        }
+        .table-custom thead {
+            background-color: #e9ecef;
+        }
 
-.product-card:hover{
-transform:translateY(-5px);
-}
+        /* Quality Section */
+        .quality-section {
+            background-color: white;
+            padding: 80px 0;
+        }
 
-.product-img{
-height:200px;
-object-fit:contain;
-padding:20px;
-}
+        .footer-info {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 50px 0;
+        }
 
-.quality{
-background:#002f6c;
-color:white;
-padding:60px 0;
-}
+        .btn-modern {
+            background-color: var(--accent-red);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
 
-.footer{
-background:#0b1f3a;
-color:white;
-padding:40px 0;
-}
-
-.badge-q{
-background:#e63946;
-margin:5px;
-font-size:14px;
-}
-
-</style>
+        .btn-modern:hover {
+            background-color: #ff0000;
+            color: white;
+            box-shadow: 0 0 15px rgba(204,0,0,0.4);
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-
-<section class="hero text-center">
-<div class="container">
-
-<h1>RCI Metal Packaging</h1>
-
-<p class="lead">
-High Quality Food Can Packaging
-</p>
-
-<p>
-Metal Can Manufacturer with World Class Quality
-</p>
-
-</div>
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="container py-5">
-
-<div class="row align-items-center">
-
-<div class="col-md-6">
-
-<h2 class="section-title">About Royal Can Industries</h2>
-
-<p>
-บริษัท รอแยลแคน อินดัสทรีส์ จำกัด เป็นผู้ผลิตบรรจุภัณฑ์โลหะสำหรับอุตสาหกรรมอาหาร
-ที่มีประสบการณ์มากกว่า 30 ปี และเป็นหนึ่งในผู้ผลิตกระป๋องอาหารรายใหญ่ของประเทศไทย
-</p>
-
-<p>
-ผลิตภัณฑ์ถูกออกแบบให้สามารถใช้กับกระบวนการฆ่าเชื้อ (Retort)
-เพื่อรักษาคุณภาพอาหารและความปลอดภัยของผู้บริโภค
-</p>
-
-</div>
-
-<div class="col-md-6">
-
-<img src="https://www.rcithailand.com/wp-content/uploads/2019/05/RCI-factory.jpg" class="img-fluid rounded">
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section class="container py-5">
-
-<h2 class="text-center section-title">
-Products
-</h2>
-
-<div class="row g-4">
-
-<!-- 2 piece -->
-
-<div class="col-md-4">
-
-<div class="card product-card">
-
-<img src="https://www.rcithailand.com/wp-content/uploads/2019/05/2piece-can.jpg" class="product-img card-img-top">
-
-<div class="card-body">
-
-<h5>2-Piece Cans</h5>
-
-<p>
-กระป๋อง 2 ชิ้น ประกอบด้วยตัวกระป๋องและฝา
-ใช้เทคโนโลยี DRD และ DWI
-เหมาะสำหรับบรรจุอาหารที่ต้องผ่านกระบวนการฆ่าเชื้อ
-</p>
-
-<ul>
-
-<li>Size 202 x 109</li>
-<li>Size 211 x 103</li>
-<li>Size 300 x 103</li>
-<li>Size 307 x 108</li>
-<li>Size 401 x 111</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- 3 piece -->
-
-<div class="col-md-4">
-
-<div class="card product-card">
-
-<img src="https://www.rcithailand.com/wp-content/uploads/2017/01/3-piece-cans.png" class="product-img card-img-top">
-
-<div class="card-body">
-
-<h5>3-Piece Cans</h5>
-
-<p>
-กระป๋อง 3 ชิ้น ประกอบด้วย
-ฝาบน ฝาล่าง และตัวกระป๋อง
-ผลิตด้วยเทคโนโลยีการเชื่อมไฟฟ้า
-</p>
-
-<ul>
-
-<li>Food cans</li>
-<li>Pet food cans</li>
-<li>Fruit cans</li>
-<li>Vegetable cans</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- EOE -->
-
-<div class="col-md-4">
-
-<div class="card product-card">
-
-<img src="https://www.rcithailand.com/wp-content/uploads/2019/05/easy-open-end.jpg" class="product-img card-img-top">
-
-<div class="card-body">
-
-<h5>Easy Open End</h5>
-
-<p>
-ฝาเปิดง่าย (EOE) พัฒนามาจากฝาเรียบ
-โดยเพิ่ม Tab สำหรับเปิด
-ทำให้สะดวกและปลอดภัย
-</p>
-
-<ul>
-
-<li>202 EOE</li>
-<li>211 EOE</li>
-<li>300 EOE</li>
-<li>307 EOE</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- QUALITY -->
-
-<section class="quality text-center">
-
-<div class="container">
-
-<h2 class="mb-4">Quality Standards</h2>
-
-<p class="mb-4">
-มาตรฐานคุณภาพระดับสากลเพื่อความปลอดภัยของอาหาร
-</p>
-
-<span class="badge badge-q">ISO 9001</span>
-<span class="badge badge-q">ISO 14001</span>
-<span class="badge badge-q">HACCP</span>
-<span class="badge badge-q">GMP</span>
-<span class="badge badge-q">BRC</span>
-<span class="badge badge-q">ISO 50001</span>
-<span class="badge badge-q">ISO 45001</span>
-
-</div>
-
-</section>
-
-
-<!-- CONTACT -->
-
-<section class="footer">
-
-<div class="container">
-
-<div class="row">
-
-<div class="col-md-6">
-
-<h5>Royal Can Industries Co., Ltd.</h5>
-
-<p>
-68 Moo 3, Khlong Khrai Road<br>
-Kray, Krathum Baen<br>
-Samut Sakhon 74110 Thailand
-</p>
-
-</div>
-
-<div class="col-md-6">
-
-<h5>Contact</h5>
-
-<p>
-
-Tel : +66 (0)34 419333<br>
-Email : marketing@rcithailand.com
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">RATCHADA CAN INDUSTRY</h1>
+            <p class="lead">ผู้นำด้านการผลิตบรรจุภัณฑ์โลหะมาตรฐานสากล</p>
+            <div class="mt-4">
+                <span class="badge bg-danger p-2 px-4">INNOVATION</span>
+                <span class="badge bg-light text-dark p-2 px-4 ms-2">QUALITY</span>
+                <span class="badge bg-danger p-2 px-4 ms-2">SUSTAINABILITY</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold" style="color: var(--primary-blue);">OUR PRODUCTS</h2>
+            <div style="width: 80px; height: 5px; background: var(--accent-red); margin: 10px auto;"></div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card product-card">
+                    <div class="card-header-custom text-center">1. กระป๋อง 2 ชิ้น (2-Piece Can)</div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/400x300/002366/ffffff?text=2-Piece+Can+Sample" class="img-fluid rounded mb-3" alt="2-Piece Can">
+                        <p class="text-muted small">ผลิตด้วยเทคโนโลยี Draw & Wall Ironing (DWI) ไร้รอยต่อข้างกระป๋อง เหมาะสำหรับเครื่องดื่มและอาหาร</p>
+                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-ruler-combined me-2"></i>ไซส์ที่ให้บริการ:</h6>
+                        <table class="table table-sm table-custom">
+                            <thead>
+                                <tr>
+                                    <th>ขนาด (ออนซ์)</th>
+                                    <th>เส้นผ่านศูนย์กลาง</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>12 oz.</td><td>211 (65mm)</td></tr>
+                                <tr><td>8 oz.</td><td>202 (52mm)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card product-card">
+                    <div class="card-header-custom text-center">2. กระป๋อง 3 ชิ้น (3-Piece Can)</div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/400x300/002366/ffffff?text=3-Piece+Can+Sample" class="img-fluid rounded mb-3" alt="3-Piece Can">
+                        <p class="text-muted small">ประกอบด้วย ตัวกระป๋อง ฝาบน และฝาล่าง มีความแข็งแรงสูง เหมาะสำหรับผัก ผลไม้ และอาหารแปรรูป</p>
+                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-ruler-combined me-2"></i>ไซส์ที่ให้บริการ:</h6>
+                        <table class="table table-sm table-custom">
+                            <thead>
+                                <tr>
+                                    <th>มาตรฐาน</th>
+                                    <th>เส้นผ่านศูนย์กลาง</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>300 x 407</td><td>73 mm</td></tr>
+                                <tr><td>211 x 400</td><td>65 mm</td></tr>
+                                <tr><td>307 x 409</td><td>83 mm</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card product-card">
+                    <div class="card-header-custom text-center">3. ฝาเปิดง่าย (Easy Open End)</div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/400x300/cc0000/ffffff?text=EOE+Sample" class="img-fluid rounded mb-3" alt="Easy Open End">
+                        <p class="text-muted small">ฝาอลูมิเนียมและฝาเหล็กเคลือบดีบุก เปิดง่าย ปลอดภัย พร้อมระบบป้องกันการบาดมือ</p>
+                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-check-circle me-2"></i>ประเภท:</h6>
+                        <ul class="small">
+                            <li>Full Aperture (เปิดออกทั้งหมด)</li>
+                            <li>Stay-on Tab (สำหรับเครื่องดื่ม)</li>
+                            <li>ขนาดมาตรฐาน: 200, 202, 300, 307</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quality-section">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5" style="color: var(--primary-blue);">ระบบบริหารคุณภาพ (Quality Standard)</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
+                    <h5>ISO 9001:2015</h5>
+                    <p class="small text-muted">ระบบบริหารงานคุณภาพมาตรฐานสากล</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h5>FSSC 22000</h5>
+                    <p class="small text-muted">มาตรฐานความปลอดภัยด้านอาหาร</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
+                    <h5>Green Industry</h5>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon-box"><i class="fa-solid fa-microscope"></i></div>
+                    <h5>Lab Testing</h5>
+                    <p class="small text-muted">ตรวจสอบคุณภาพทุกขั้นตอน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="fw-bold text-white mb-3">บริษัท อุตสาหกรรมรัชดากระป๋อง จำกัด</h4>
+                    <p><i class="fa-solid fa-location-dot me-2 text-danger"></i> 112 หมู่ 5 ต.แคราย อ.กระทุ่มแบน จ.สมุทรสาคร 74110</p>
+                    <p><i class="fa-solid fa-phone me-2 text-danger"></i> 02-xxx-xxxx / 034-xxx-xxxx</p>
+                    <p><i class="fa-solid fa-envelope me-2 text-danger"></i> sales@rcithailand.com</p>
+                </div>
+                <div class="col-md-6 text-md-end align-self-center">
+                    <button class="btn btn-modern mb-2">ดาวน์โหลด Catalog (PDF)</button>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3 fs-4"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-4"><i class="fa-brands fa-line"></i></a>
+                        <a href="https://www.rcithailand.com" class="text-white fs-4"><i class="fa-solid fa-globe"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <div class="text-center small opacity-75">
+                © 2026 Ratchada Can Industry - All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
