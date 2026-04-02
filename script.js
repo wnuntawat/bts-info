@@ -1,77 +1,115 @@
 // --- ตั้งค่าข้อมูลของคุณที่นี่ ---
-const SHEET_ID = '1-xqP86a-ilYNpLvHWo_lE5Duc30pDGuowN4GO1PNpvY';
+const SHEET_ID = '1-xqP86a-1UGOvZxuVBsi6KlPzBj4N1M0gc9Bsd9QqyZaGxl2uY4A';
 const API_KEY = 'AIzaSyDcFwjJrIMezNVeMlmLO00efP9H4H9F990';
-const RANGE = 'Sheet1!A1:B13'; // ปรับตามชื่อ Sheet และช่วงข้อมูลของคุณ
+const RANGE = 'Sheet1!A2:C100'; // ปรับตามชื่อ Sheet และช่วงข้อมูลของคุณ
 
-async function initDashboard() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-
+async function updateDashboard() {
     try {
-        const response = await fetch(url);
+        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`);
         const data = await response.json();
         const rows = data.values;
 
         if (!rows) return;
 
-        // แยกหัวข้อ (Header) และข้อมูล (Data)
-        const labels = rows.slice(2).map(row => row[0]); // คอลัมน์ A (เช่น เดือน)
-        const values = rows.slice(2).map(row => parseFloat(row[1])); // คอลัมน์ B (เช่น ยอดขาย)
+        let currentYear = "";
+        const cleanData = [];
 
-        // อัปเดต KPI แบบง่าย (ตัวอย่าง: เอาผลรวมทั้งหมด)
-        const total = values.reduce((a, b) => a + b, 0);
-        document.getElementById('kpi-sales').innerText = `฿${total.toLocaleString()}`;
-        document.getElementById('kpi-users').innerText = values.length;
+        rows.forEach(row => {
+            // Logic เติมปีอัตโนมัติ (Fill Down)
+            if (row[0] && row[0].trim() !== "") currentYear = row[0];
+            
+            const month = row[1];
+            const qty = parseFloat(row[2]) || 0;
 
-        // สร้างกราฟ
-        renderChart(labels, values);
+            if (month) {
+                cleanData.push({
+                    fullLabel: `${currentYear} ${month}`,
+                    value: qty
+                });
+            }
+        });
 
-    } catch (error) {
-        console.error("Error fetching data:", error);
+        // --- 1. คำนวณ KPI ---
+        const total = cleanData.reduce((acc, curr) => acc + curr.value, 0);
+        const avg = total / cleanData.length;
+        const maxItem = [...cleanData].sort((a, b) => b.value - a.value)[0];
+
+        // อัปเดตหน้าจอ
+        document.getElementById('kpi-total').innerText = total.toLocaleString();
+        document.getElementById('kpi-avg').innerText = Math.round(avg).toLocaleString();
+        document.getElementById('kpi-max').innerText = maxItem ? maxItem.fullLabel : "N/A";
+        document.getElementById('kpi-count').innerText = cleanData.length;
+
+        // --- 2. วาดกราฟ ---
+        drawChart(cleanData);
+
+    } catch (err) {
+        console.error("Dashboard Error:", err);
     }
 }
 
-function renderChart(labels, values) {
-    const ctx = document.getElementById('mainChart').getContext('2d');
-    
-    // เคลียร์กราฟเก่าถ้ามี (สำหรับกรณีทำ Auto-refresh)
-    if (window.myChart instanceof Chart) {
-        window.myChart.destroy();
-    }
+function drawChart(dataset) {
+    const ctx = document.getElementById('lossChart').getContext('2d');
+    if (window.myChart instanceof Chart) window.myChart.destroy();
+
+    const labels = dataset.map(d => d.fullLabel);
+    const values = dataset.map(d => d.value);
 
     window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
-                label: 'Performance Data',
                 data: values,
-                borderColor: '#22d3ee', // Cyan-400
-                backgroundColor: 'rgba(34, 211, 238, 0.1)',
+                borderColor: '#ef4444', // Red-500
+                backgroundColor: (context) => {
+                    const chart = context.chart;
+                    const {ctx, chartArea} = chart;
+                    if (!chartArea) return null;
+                    const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+                    gradient.addColorStop(0, 'rgba(239, 68, 68, 0.3)');
+                    gradient.addColorStop(1, 'rgba(239, 68, 68, 0)');
+                    return gradient;
+                },
                 fill: true,
                 tension: 0.4,
-                borderWidth: 3,
-                pointBackgroundColor: '#22d3ee'
+                pointRadius: 5,
+                pointBackgroundColor: '#ef4444',
+                pointHoverRadius: 8,
+                borderWidth: 3
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { display: false }
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    titleColor: '#38bdf8',
+                    bodyFont: { size: 14 },
+                    padding: 12,
+                    displayColors: false
+                }
             },
             scales: {
                 y: {
-                    grid: { color: '#374151' },
-                    ticks: { color: '#9ca3af' }
+                    beginAtZero: true,
+                    grid: { color: '#334155' },
+                    ticks: { color: '#94a3b8', font: { size: 12 } }
                 },
                 x: {
                     grid: { display: false },
-                    ticks: { color: '#9ca3af' }
+                    ticks: { color: '#94a3b8', font: { size: 11 } }
                 }
             }
         }
     });
 }
+
+// เริ่มต้นทำงานและ Refresh ทุก 1 นาที
+updateDashboard();
+setInterval(updateDashboard, 60000);
 
 // เริ่มทำงาน
 initDashboard();
