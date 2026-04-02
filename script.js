@@ -111,8 +111,4 @@ function drawChart(dataset) {
 updateDashboard();
 setInterval(updateDashboard, 60000);
 
-// เริ่มทำงาน
-initDashboard();
 
-// (Optional) ตั้งเวลาให้ Refresh ทุกๆ 5 นาที
-setInterval(updateDashboard();, 300000);
