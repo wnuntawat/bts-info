@@ -115,4 +115,4 @@ setInterval(updateDashboard, 60000);
 initDashboard();
 
 // (Optional) ตั้งเวลาให้ Refresh ทุกๆ 5 นาที
-setInterval(initDashboard, 300000);
+setInterval(updateDashboard();, 300000);
