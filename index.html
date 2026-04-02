@@ -1,252 +1,211 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RCI Thailand - Digital Brochure</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-blue: #002366;
-            --accent-red: #cc0000;
-            --light-gray: #f8f9fa;
-            --dark-blue: #001233;
-        }
 
-        body {
-            font-family: 'Kanit', sans-serif;
-            color: #333;
-            background-color: var(--light-gray);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
-            color: white;
-            padding: 100px 0;
-            border-bottom: 8px solid var(--accent-red);
-            position: relative;
-            overflow: hidden;
-        }
+<title>Boon Tree Supermarket Dashboard</title>
 
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 300px; height: 300px;
-            background: rgba(204, 0, 0, 0.1);
-            filter: blur(80px);
-            border-radius: 50%;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        /* Product Cards */
-        .product-card {
-            border: none;
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            overflow: hidden;
-            background: white;
-        }
+<style>
 
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
+body{
+background:#f4f7fb;
+font-family:Segoe UI;
+}
 
-        .card-header-custom {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 15px;
-            font-weight: 600;
-            border-bottom: 4px solid var(--accent-red);
-        }
+.header{
+background:linear-gradient(90deg,#1e3c72,#2a5298);
+color:white;
+padding:20px;
+font-size:26px;
+font-weight:bold;
+text-align:center;
+}
 
-        /* Badge & Icons */
-        .icon-box {
-            color: var(--accent-red);
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
+.card{
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+}
 
-        /* Table Style */
-        .table-custom {
-            font-size: 0.9rem;
-        }
-        .table-custom thead {
-            background-color: #e9ecef;
-        }
+.kpi{
+font-size:32px;
+font-weight:bold;
+color:#1e3c72;
+}
 
-        /* Quality Section */
-        .quality-section {
-            background-color: white;
-            padding: 80px 0;
-        }
+.chart-container{
+height:350px;
+}
 
-        .footer-info {
-            background-color: var(--dark-blue);
-            color: white;
-            padding: 50px 0;
-        }
+</style>
 
-        .btn-modern {
-            background-color: var(--accent-red);
-            color: white;
-            border-radius: 50px;
-            padding: 10px 30px;
-            font-weight: 600;
-            border: none;
-            transition: 0.3s;
-        }
-
-        .btn-modern:hover {
-            background-color: #ff0000;
-            color: white;
-            box-shadow: 0 0 15px rgba(204,0,0,0.4);
-        }
-    </style>
 </head>
+
 <body>
 
-    <header class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold">RATCHADA CAN INDUSTRY</h1>
-            <p class="lead">ผู้นำด้านการผลิตบรรจุภัณฑ์โลหะมาตรฐานสากล</p>
-            <div class="mt-4">
-                <span class="badge bg-danger p-2 px-4">INNOVATION</span>
-                <span class="badge bg-light text-dark p-2 px-4 ms-2">QUALITY</span>
-                <span class="badge bg-danger p-2 px-4 ms-2">SUSTAINABILITY</span>
-            </div>
-        </div>
-    </header>
+<div class="header">
+Boon Tree Supermarket Sales Dashboard
+</div>
 
-    <section class="container my-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold" style="color: var(--primary-blue);">OUR PRODUCTS</h2>
-            <div style="width: 80px; height: 5px; background: var(--accent-red); margin: 10px auto;"></div>
-        </div>
+<div class="container mt-4">
 
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="card product-card">
-                    <div class="card-header-custom text-center">1. กระป๋อง 2 ชิ้น (2-Piece Can)</div>
-                    <div class="card-body">
-                        <img src="https://via.placeholder.com/400x300/002366/ffffff?text=2-Piece+Can+Sample" class="img-fluid rounded mb-3" alt="2-Piece Can">
-                        <p class="text-muted small">ผลิตด้วยเทคโนโลยี Draw & Wall Ironing (DWI) ไร้รอยต่อข้างกระป๋อง เหมาะสำหรับเครื่องดื่มและอาหาร</p>
-                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-ruler-combined me-2"></i>ไซส์ที่ให้บริการ:</h6>
-                        <table class="table table-sm table-custom">
-                            <thead>
-                                <tr>
-                                    <th>ขนาด (ออนซ์)</th>
-                                    <th>เส้นผ่านศูนย์กลาง</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>12 oz.</td><td>211 (65mm)</td></tr>
-                                <tr><td>8 oz.</td><td>202 (52mm)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<div class="row g-3">
 
-            <div class="col-lg-4">
-                <div class="card product-card">
-                    <div class="card-header-custom text-center">2. กระป๋อง 3 ชิ้น (3-Piece Can)</div>
-                    <div class="card-body">
-                        <img src="https://via.placeholder.com/400x300/002366/ffffff?text=3-Piece+Can+Sample" class="img-fluid rounded mb-3" alt="3-Piece Can">
-                        <p class="text-muted small">ประกอบด้วย ตัวกระป๋อง ฝาบน และฝาล่าง มีความแข็งแรงสูง เหมาะสำหรับผัก ผลไม้ และอาหารแปรรูป</p>
-                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-ruler-combined me-2"></i>ไซส์ที่ให้บริการ:</h6>
-                        <table class="table table-sm table-custom">
-                            <thead>
-                                <tr>
-                                    <th>มาตรฐาน</th>
-                                    <th>เส้นผ่านศูนย์กลาง</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>300 x 407</td><td>73 mm</td></tr>
-                                <tr><td>211 x 400</td><td>65 mm</td></tr>
-                                <tr><td>307 x 409</td><td>83 mm</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+<div class="col-md-4">
+<div class="card p-3">
+<div>Today's Sales</div>
+<div class="kpi">฿182,450</div>
+</div>
+</div>
 
-            <div class="col-lg-4">
-                <div class="card product-card">
-                    <div class="card-header-custom text-center">3. ฝาเปิดง่าย (Easy Open End)</div>
-                    <div class="card-body">
-                        <img src="https://via.placeholder.com/400x300/cc0000/ffffff?text=EOE+Sample" class="img-fluid rounded mb-3" alt="Easy Open End">
-                        <p class="text-muted small">ฝาอลูมิเนียมและฝาเหล็กเคลือบดีบุก เปิดง่าย ปลอดภัย พร้อมระบบป้องกันการบาดมือ</p>
-                        <h6 class="fw-bold mt-3"><i class="fa-solid fa-check-circle me-2"></i>ประเภท:</h6>
-                        <ul class="small">
-                            <li>Full Aperture (เปิดออกทั้งหมด)</li>
-                            <li>Stay-on Tab (สำหรับเครื่องดื่ม)</li>
-                            <li>ขนาดมาตรฐาน: 200, 202, 300, 307</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="col-md-4">
+<div class="card p-3">
+<div>Total Bills</div>
+<div class="kpi">1,254</div>
+</div>
+</div>
 
-    <section class="quality-section">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-5" style="color: var(--primary-blue);">ระบบบริหารคุณภาพ (Quality Standard)</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
-                    <h5>ISO 9001:2015</h5>
-                    <p class="small text-muted">ระบบบริหารงานคุณภาพมาตรฐานสากล</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h5>FSSC 22000</h5>
-                    <p class="small text-muted">มาตรฐานความปลอดภัยด้านอาหาร</p>
-                </div>
-                <div class="col-md-3">
-                    <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
-                    <h5>Green Industry</h5>
-                </div>
-                <div class="col-md-3">
-                    <div class="icon-box"><i class="fa-solid fa-microscope"></i></div>
-                    <h5>Lab Testing</h5>
-                    <p class="small text-muted">ตรวจสอบคุณภาพทุกขั้นตอน</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="col-md-4">
+<div class="card p-3">
+<div>Avg / Bill</div>
+<div class="kpi">฿145</div>
+</div>
+</div>
 
-    <footer class="footer-info">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <h4 class="fw-bold text-white mb-3">บริษัท อุตสาหกรรมรัชดากระป๋อง จำกัด</h4>
-                    <p><i class="fa-solid fa-location-dot me-2 text-danger"></i> 112 หมู่ 5 ต.แคราย อ.กระทุ่มแบน จ.สมุทรสาคร 74110</p>
-                    <p><i class="fa-solid fa-phone me-2 text-danger"></i> 02-xxx-xxxx / 034-xxx-xxxx</p>
-                    <p><i class="fa-solid fa-envelope me-2 text-danger"></i> sales@rcithailand.com</p>
-                </div>
-                <div class="col-md-6 text-md-end align-self-center">
-                    <button class="btn btn-modern mb-2">ดาวน์โหลด Catalog (PDF)</button>
-                    <div class="mt-3">
-                        <a href="#" class="text-white me-3 fs-4"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="text-white me-3 fs-4"><i class="fa-brands fa-line"></i></a>
-                        <a href="https://www.rcithailand.com" class="text-white fs-4"><i class="fa-solid fa-globe"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-4 bg-light">
-            <div class="text-center small opacity-75">
-                © 2026 Ratchada Can Industry - All Rights Reserved.
-            </div>
-        </div>
-    </footer>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="row mt-4 g-4">
+
+<div class="col-lg-8">
+
+<div class="card p-4">
+
+<h5>Monthly Sales</h5>
+
+<div class="chart-container">
+<canvas id="salesChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="col-lg-4">
+
+<div class="card p-4">
+
+<h5>Top Categories</h5>
+
+<div class="chart-container">
+<canvas id="categoryChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+<script>
+
+const salesChart = new Chart(
+document.getElementById('salesChart'),
+{
+type:'line',
+
+data:{
+
+labels:[
+'Jan','Feb','Mar','Apr','May','Jun',
+'Jul','Aug','Sep','Oct','Nov','Dec'
+],
+
+datasets:[{
+label:'Sales',
+
+data:[
+350000,
+420000,
+390000,
+450000,
+520000,
+480000,
+510000,
+530000,
+500000,
+560000,
+590000,
+610000
+],
+
+borderColor:'#1e3c72',
+backgroundColor:'rgba(30,60,114,0.1)',
+fill:true,
+tension:0.4
+
+}]
+},
+
+options:{
+responsive:true
+}
+
+}
+)
+
+
+const categoryChart = new Chart(
+document.getElementById('categoryChart'),
+{
+
+type:'doughnut',
+
+data:{
+
+labels:[
+'Fresh Food',
+'Beverage',
+'Snack',
+'Household',
+'Other'
+],
+
+datasets:[{
+
+data:[
+35,
+25,
+20,
+10,
+10
+],
+
+backgroundColor:[
+'#1e3c72',
+'#2a5298',
+'#4facfe',
+'#00c6ff',
+'#a1c4fd'
+]
+
+}]
+
+}
+
+}
+
+)
+
+</script>
+
 </body>
 </html>
