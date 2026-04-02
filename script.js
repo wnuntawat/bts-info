@@ -1,6 +1,6 @@
 // --- ตั้งค่าข้อมูลของคุณที่นี่ ---
-const SHEET_ID = 'ใส่_SHEET_ID_ของคุณที่นี่';
-const API_KEY = 'ใส่_API_KEY_จาก_Google_Cloud';
+const SHEET_ID = '1-xqP86a-ilYNpLvHWo_lE5Duc30pDGuowN4GO1PNpvY';
+const API_KEY = 'AIzaSyDcFwjJrIMezNVeMlmLO00efP9H4H9F990';
 const RANGE = 'Sheet1!A1:B13'; // ปรับตามชื่อ Sheet และช่วงข้อมูลของคุณ
 
 async function initDashboard() {
