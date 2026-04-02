@@ -14,8 +14,8 @@ async function initDashboard() {
         if (!rows) return;
 
         // แยกหัวข้อ (Header) และข้อมูล (Data)
-        const labels = rows.slice(1).map(row => row[0]); // คอลัมน์ A (เช่น เดือน)
-        const values = rows.slice(1).map(row => parseFloat(row[1])); // คอลัมน์ B (เช่น ยอดขาย)
+        const labels = rows.slice(2).map(row => row[0]); // คอลัมน์ A (เช่น เดือน)
+        const values = rows.slice(2).map(row => parseFloat(row[1])); // คอลัมน์ B (เช่น ยอดขาย)
 
         // อัปเดต KPI แบบง่าย (ตัวอย่าง: เอาผลรวมทั้งหมด)
         const total = values.reduce((a, b) => a + b, 0);
