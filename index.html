@@ -1,6 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCI Thailand - Digital Brochure</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .bg-royal-blue {
+            background-color: #003399; /* โทนน้ำเงิน RCI */
+        }
+        .text-royal-blue {
+            color: #003399;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), 
+                        url('https://www.rcithailand.com/wp-content/uploads/2025/10/LOGO-RC-1.png') no-repeat center;
+            background-size: contain;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .quality-badge {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #003399;
+        }
+        .table-custom {
+            font-size: 0.9rem;
+        }
+        .table-custom thead {
+            background-color: #003399;
+            color: white;
+        }
+        footer {
+            background-color: #002266;
+            color: white;
+            padding: 40px 0;
+        }
+    </style>
+</head>
 <body>
-  <h1>Hello World! จาก GitHub + Vercel</h1>
+
+    <header class="hero-section">
+        <div class="container">
+            <img src="https://www.rcithailand.com/wp-content/uploads/2025/10/LOGO-RC-1.png" alt="RCI Logo" class="mb-4" style="max-height: 100px; filter: brightness(0) invert(1);">
+            <h1 class="display-4 fw-bold">Royal Can Industries (RCI)</h1>
+            <p class="lead">ผู้นำด้านบรรจุภัณฑ์โลหะและนวัตกรรมการผลิตกระป๋องมาตรฐานสากล</p>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="text-center fw-bold mb-5 text-royal-blue">ผลิตภัณฑ์ของเรา (Our Products)</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-prescription-bottle fa-3x text-royal-blue"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-center">กระป๋อง 2 ชิ้น (2-Piece Cans)</h4>
+                        <p class="card-text text-muted">ตัวกระป๋องและฝาล่างถูกขึ้นรูปเป็นชิ้นเดียวกันด้วยกระบวนการ DWI หรือ DRD ไร้รอยต่อข้างกระป๋อง</p>
+                        <ul class="small">
+                            <li>เหมาะสำหรับอาหารนึ่งฆ่าเชื้อ (Retort)</li>
+                            <li>รักษาความสดและสีสันของอาหาร</li>
+                            <li>ตัวอย่างไซส์: 63.7 x 33 mm (2.8 oz), 73 x 33 mm (3.8 oz)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-archive fa-3x text-royal-blue"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-center">กระป๋อง 3 ชิ้น (3-Piece Cans)</h4>
+                        <p class="card-text text-muted">ประกอบด้วยฝาบน ตัวกระป๋อง และฝาล่าง เชื่อมรอยตะเข็บข้างด้วยระบบไฟฟ้าที่ทันสมัย</p>
+                        <ul class="small">
+                            <li>เคลือบแลคเกอร์คุณภาพสูงทั้งภายในและภายนอก</li>
+                            <li>ใช้บรรจุผัก ผลไม้ อาหารทะเล และนม</li>
+                            <li>ตัวอย่างไซส์: 83 x 116 mm (20.4 oz), 99 x 119 mm (29.7 oz)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card">
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-hockey-puck fa-3x text-royal-blue"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-center">ฝาเปิดง่าย (Easy Open Ends)</h4>
+                        <p class="card-text text-muted">นวัตกรรมฝาเปิดที่ช่วยให้การใช้งานสะดวก ไม่ต้องใช้ที่เปิดกระป๋อง</p>
+                        <ul class="small">
+                            <li>ฝา EOE (Easy Open Ends)</li>
+                            <li>ฝา Quik Peel (ฝาฟอยล์ ปลอดภัย ไม่บาดมือ)</li>
+                            <li>รองรับการพิมพ์โลโก้หรือลวดลายบนฝา</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 text-royal-blue">ระบบมาตรฐานคุณภาพ</h2>
+            <div class="row g-3 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="quality-badge shadow-sm">
+                        <i class="fas fa-check-circle text-success mb-2"></i>
+                        <h6>FSSC 22000</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quality-badge shadow-sm">
+                        <i class="fas fa-shield-alt text-primary mb-2"></i>
+                        <h6>GMP / HACCP</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quality-badge shadow-sm">
+                        <i class="fas fa-star text-warning mb-2"></i>
+                        <h6>ISO 9001</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="quality-badge shadow-sm">
+                        <i class="fas fa-moon text-dark mb-2"></i>
+                        <h6>HALAL Certified</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold border-bottom pb-2 mb-3">ที่อยู่บริษัท</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i> 
+                        บริษัท โรแยล แคน อินดัสทรี จำกัด (Royal Can Industries Co., Ltd.)<br>
+                        68 หมู่ 3 ถ.เลียบคลองแคราย ต.แคราย อ.กระทุ่มแบน จ.สมุทรสาคร 74110
+                    </p>
+                    <p><i class="fas fa-phone me-2"></i> โทร: +66 (0)34 419333</p>
+                    <p><i class="fas fa-envelope me-2"></i> อีเมล: sales@rcithailand.com</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="fw-bold border-bottom pb-2 mb-3">สิ่งที่โบรชัวร์ต้องมี (Checklist)</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check me-2"></i> รายละเอียดทางเทคนิค</li>
+                                <li><i class="fas fa-check me-2"></i> ตารางขนาด (Dimensions)</li>
+                                <li><i class="fas fa-check me-2"></i> การรับรองมาตรฐาน</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check me-2"></i> ข้อมูลการติดต่อชัดเจน</li>
+                                <li><i class="fas fa-check me-2"></i> รูปภาพประกอบคุณภาพสูง</li>
+                                <li><i class="fas fa-check me-2"></i> QR Code ติดต่อเจ้าหน้าที่</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="text-center small">
+                © 2026 Royal Can Industries Company Limited. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
