@@ -1,5 +1,5 @@
 // --- ตั้งค่าข้อมูลของคุณที่นี่ ---
-const SHEET_ID = '1-xqP86a-1UGOvZxuVBsi6KlPzBj4N1M0gc9Bsd9QqyZaGxl2uY4A';
+const SHEET_ID = '1UGOvZxuVBsi6KlPzBj4N1M0gc9Bsd9QqyZaGxl2uY4A';
 const API_KEY = 'AIzaSyDcFwjJrIMezNVeMlmLO00efP9H4H9F990';
 const RANGE = 'Sheet1!A2:C100'; // ปรับตามชื่อ Sheet และช่วงข้อมูลของคุณ
 
